@@ -1,12 +1,24 @@
 /* from normalize css */
 
-body { margin: 0; }
+body, p { margin: 0; }
 h1 { font-size: 2em; margin: 0.67em 0; }
 a { background-color: transparent; }
 img { border-style: none; }
 
 
+/* Fonts */
+
+@font-face {
+    font-family: BIZUDMincho, Verdana, sans-serif;
+    src: url(./assets/fonts/BIZUDMincho-Regular.ttf);
+}
+
 /* Main css */
+
+:root {
+    --font: BIZUDMincho, Verdana, sans-serif;
+    --color-main: #44556a;
+}
 
 body {
     background-image: url(./assets/back.jpg);
@@ -17,24 +29,25 @@ input {
 }
 
 .page-wrapper {
-    width: 50rem;
+    max-width: 45rem;
     height: fit-content;
     margin: 10rem auto;
     background-color: whitesmoke;
-    border-radius: 0.5rem;
-    box-shadow: 4px 4px 8px black;
-    overflow: hidden;
+    border: 0.5rem solid var(--color-main);
+    border-radius: 1rem;
+    box-shadow: 8px 8px 8px rgb(44, 44, 44);
 }
 
 .img-slider {
-    display: block;
-    max-height: 40rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
 
 .meme-card {
-    width: 50rem;
-    height: 40rem;
+    width: inherit;
+    min-height: 40rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,8 +55,8 @@ input {
 }
 
 .meme-image {
+    display: block;
     border-radius: 3rem;
-    margin: 0;
     opacity: inherit;
 }
 
@@ -51,15 +64,26 @@ input {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    border-top: 0.5rem solid var(--color-main);
+    height: 4rem;
+}
+
+.meme-title-wrapper {
+    height: 4rem;
+    overflow: hidden;
+    padding-left: 2rem;
 }
 
 .meme-title {
+    line-height: 4rem;
     opacity: 0;
+    font-family: var(--font);
+    color: var(--color-main);
+    font-weight: 500;
 }
 
 .controls {
     display: flex;
-    
 }
 
 label {
@@ -70,7 +94,7 @@ label {
     height: 0.2rem;
     width: 1.5rem;
     border-radius: 0.4rem;
-    border: 0.1rem solid blueviolet;
+    border: 0.1rem solid var(--color-main);
     transition: background ease-in-out .5s;
 }
 
@@ -78,7 +102,7 @@ label {
 label:hover,
 #meme1:checked ~ .low-panel > .controls > label:nth-of-type(1),
 #meme2:checked ~ .low-panel > .controls > label:nth-of-type(2) {
-    background: blueviolet;
+    background: #44556a;
 }
 
 
