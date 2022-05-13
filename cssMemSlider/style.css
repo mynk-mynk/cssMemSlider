@@ -1,9 +1,18 @@
 /* from normalize css */
 
-body, p { margin: 0; }
-h1 { font-size: 2em; margin: 0.67em 0; }
-a { background-color: transparent; }
-img { border-style: none; }
+body,
+p,
+ul {
+    margin: 0;
+}
+
+a {
+    background-color: transparent;
+}
+
+img {
+    border-style: none;
+}
 
 
 /* Fonts */
@@ -51,19 +60,22 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    transform: rotate(360deg);
     opacity: 0;
+    transition: all .5s;
 }
 
 .meme-image {
+    max-width: 40rem;
     display: block;
-    border-radius: 3rem;
+    border-radius: 1rem;
     opacity: inherit;
 }
 
 .low-panel {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 2rem;
     border-top: 0.5rem solid var(--color-main);
     height: 4rem;
 }
@@ -71,7 +83,6 @@ input {
 .meme-title-wrapper {
     height: 4rem;
     overflow: hidden;
-    padding-left: 2rem;
 }
 
 .meme-title {
@@ -80,39 +91,97 @@ input {
     font-family: var(--font);
     color: var(--color-main);
     font-weight: 500;
+    transition: all .5s;
+    
 }
+
+.meme-title2 {
+    font-size: 0.75rem;
+}
+
+.meme-title4 {
+    font-size: 2rem;
+}
+
 
 .controls {
     display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: auto 0;
+}
+
+form {
+    cursor: pointer;
+    width: 1.35rem;
+    height: 0.3rem;
 }
 
 label {
     cursor: pointer;
-    padding: 0.3rem;
-    appearance: none;
-    margin: auto 0.3rem;
-    height: 0.2rem;
-    width: 1.5rem;
+    width: fit-content;
+    height: fit-content;
+    margin: auto 0;
+    padding: 1rem 0.2rem;
+}
+
+.mini-control {
+    cursor: pointer;
+    width: 2rem;
+    height: 0.5rem;
     border-radius: 0.4rem;
     border: 0.1rem solid var(--color-main);
     transition: background ease-in-out .5s;
 }
 
 
-label:hover,
-#meme1:checked ~ .low-panel > .controls > label:nth-of-type(1),
-#meme2:checked ~ .low-panel > .controls > label:nth-of-type(2) {
+.mini-control:hover,
+#meme1:checked~.low-panel>.controls>label:nth-of-type(1)>.mini-control,
+#meme2:checked~.low-panel>.controls>label:nth-of-type(2)>.mini-control,
+#meme3:checked~.low-panel>.controls>label:nth-of-type(3)>.mini-control,
+#meme4:checked~.low-panel>.controls>label:nth-of-type(4)>.mini-control {
     background: #44556a;
 }
 
 
-#meme1:checked ~ .img-slider > .meme-card1,
-#meme2:checked ~ .img-slider > .meme-card2 {
+#meme1:checked~.img-slider>.meme-card1,
+#meme2:checked~.img-slider>.meme-card2,
+#meme3:checked~.img-slider>.meme-card3,
+#meme4:checked~.img-slider>.meme-card4 {
     opacity: 1;
+    transform: rotate(0deg);
 }
 
 
-#meme1:checked ~ .low-panel > .meme-title-wrapper > .meme-title1,
-#meme2:checked ~ .low-panel > .meme-title-wrapper > .meme-title2 {
+#meme1:checked~.low-panel>.meme-title-wrapper>.meme-title1,
+#meme2:checked~.low-panel>.meme-title-wrapper>.meme-title2,
+#meme3:checked~.low-panel>.meme-title-wrapper>.meme-title3,
+#meme4:checked~.low-panel>.meme-title-wrapper>.meme-title4 {
     opacity: 1;
+}
+
+#meme2:checked~.img-slider>.meme-card1 {
+    margin-top: -40rem;
+}
+
+#meme3:checked~.img-slider>.meme-card1 {
+    margin-top: -80rem;
+}
+
+#meme4:checked~.img-slider>.meme-card1 {
+    margin-top: -120rem;
+}
+
+
+#meme2:checked~.low-panel>.meme-title-wrapper>.meme-title1 {
+    margin-top: -4rem;
+}
+
+#meme3:checked~.low-panel>.meme-title-wrapper>.meme-title1 {
+    margin-top: -8rem;
+}
+
+#meme4:checked~.low-panel>.meme-title-wrapper>.meme-title1 {
+    margin-top: -12rem;
 }
